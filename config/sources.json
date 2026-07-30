@@ -1,1 +1,24 @@
-
+{
+  "sources": [
+    {
+      "name": "vessel",
+      "enabled": true,
+      "source_type": "rest_api",
+      "base_url": "https://api.vesselapi.com",
+      "relative_url": "/v1/vessel/232003239",
+      "method": "GET",
+      "query_params": {
+        "filter.idType": "mmsi"
+      },
+      "authentication": {
+        "type": "bearer",
+        "secret_name": "vessel-api-key"
+      },
+      "target": {
+        "layer": "bronze",
+        "folder": "vessel",
+        "format": "json"
+      }
+    }
+  ]
+}
