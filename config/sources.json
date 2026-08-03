@@ -18,7 +18,7 @@
     "requestMethod": "GET",
     "authType": "none",
     "secretName": "",
-    "userAgent": "enterprise-data-hub-case/1.0 YOUR_EMAIL",
+    "userAgent": "enterprise-data-hub-case/1.0 nooshin.mehdikashi@gmail.com",
     "targetFolder": "weather"
   }
 ]
