@@ -1,24 +1,24 @@
-{
-  "sources": [
-    {
-      "name": "vessel",
-      "enabled": true,
-      "source_type": "rest_api",
-      "base_url": "https://api.vesselapi.com",
-      "relative_url": "/v1/vessel/232003239",
-      "method": "GET",
-      "query_params": {
-        "filter.idType": "mmsi"
-      },
-      "authentication": {
-        "type": "bearer",
-        "secret_name": "vessel-api-key"
-      },
-      "target": {
-        "layer": "bronze",
-        "folder": "vessel",
-        "format": "json"
-      }
-    }
-  ]
-}
+[
+  {
+    "sourceName": "vessel",
+    "enabled": true,
+    "baseUrl": "https://api.vesselapi.com/",
+    "relativeUrl": "v1/vessel/232003239?filter.idType=mmsi",
+    "requestMethod": "GET",
+    "authType": "bearer",
+    "secretName": "vessel-api-key",
+    "userAgent": "enterprise-data-hub-case/1.0",
+    "targetFolder": "vessel"
+  },
+  {
+    "sourceName": "weather",
+    "enabled": true,
+    "baseUrl": "https://api.met.no/",
+    "relativeUrl": "weatherapi/locationforecast/2.0/compact?lat=57.7089&lon=11.9746",
+    "requestMethod": "GET",
+    "authType": "none",
+    "secretName": "",
+    "userAgent": "enterprise-data-hub-case/1.0 YOUR_EMAIL",
+    "targetFolder": "weather"
+  }
+]
