@@ -3,22 +3,22 @@
     "sourceName": "vessel",
     "enabled": true,
     "baseUrl": "https://api.vesselapi.com/",
-    "relativeUrl": "v1/vessel/232003239?filter.idType=mmsi",
+    "relativeUrl": "v1/vessel/<MMSI>?filter.idType=mmsi",
     "requestMethod": "GET",
     "authType": "bearer",
-    "secretName": "vessel-api-key",
+    "secretName": "<KEY_VAULT_SECRET_NAME>",
     "userAgent": "enterprise-data-hub-case/1.0",
     "targetFolder": "vessel"
   },
   {
-    "sourceName": "weather",
-    "enabled": true,
-    "baseUrl": "https://api.met.no/",
-    "relativeUrl": "weatherapi/locationforecast/2.0/compact?lat=57.7089&lon=11.9746",
-    "requestMethod": "GET",
-    "authType": "none",
-    "secretName": "",
-    "userAgent": "enterprise-data-hub-case/1.0 nooshin.mehdikashi@gmail.com",
-    "targetFolder": "weather"
-  }
+  "sourceName": "weather",
+  "enabled": true,
+  "baseUrl": "https://api.met.no/",
+  "relativeUrl": "weatherapi/locationforecast/2.0/compact?lat=<LATITUDE>&lon=<LONGITUDE>",
+  "requestMethod": "GET",
+  "authType": "none",
+  "secretName": null,
+  "userAgent": "enterprise-data-hub-case/1.0 <CONTACT_EMAIL>",
+  "targetFolder": "weather"
+}
 ]

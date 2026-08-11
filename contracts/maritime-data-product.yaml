@@ -1,0 +1,73 @@
+# Data Product Contract — Maritime & Weather Analytics
+
+apiVersion: v3.1.0
+kind: DataContract
+
+id: maritime-weather-gold
+name: Maritime & Weather Gold Data Product
+version: 1.0.0
+status: active
+domain: maritime-operations
+
+description:
+  purpose: >
+    Provide a trusted analytical data product combining vessel and weather data
+    for reporting, operational monitoring, and downstream analytics.
+
+ownership:
+  team: data-engineering
+  owner: Data Engineering
+
+versioning:
+  strategy: semantic-versioning
+  currentVersion: 1.0.0
+
+changeManagement:
+  breakingChanges:
+    - column removal or rename
+    - primary key change
+    - fact table grain change
+  policy: >
+    Breaking changes require a MAJOR version increment.
+    Backward-compatible schema additions require a MINOR version increment.
+    Non-breaking fixes require a PATCH increment.
+
+tables:
+  - name: dim_vessel
+    type: dimension
+    modeling: SCD Type 2
+    description: Vessel master data with historical attribute changes.
+
+  - name: dim_location
+    type: dimension
+    description: Weather forecast location dimension.
+
+  - name: dim_date
+    type: dimension
+    description: Shared calendar dimension.
+
+  - name: fact_vessel_snapshot
+    type: fact
+    grain: one row per vessel per snapshot timestamp
+    description: Vessel operational measurements over time.
+
+  - name: fact_weather_forecast
+    type: fact
+    grain: one row per location per forecast timestamp
+    description: Weather forecast measurements by location and time.
+
+consumers:
+  - Power BI
+  - downstream analytical applications
+
+sla:
+  refreshFrequency: event-driven
+  expectedLatency: "< 15 minutes"
+  currentState: >
+    Target defined for the data product but not actively
+    measured or enforced in this prototype.
+
+dataQuality:
+  - required business keys must not be null
+  - fact foreign keys must resolve to dimensions
+  - duplicate business keys are rejected
